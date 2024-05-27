@@ -10,5 +10,12 @@ export const routes: Routes = [
         (c) => c.ProductListComponent
       ),
   },
+  {
+    path: 'cart',
+    loadComponent: () =>
+      import('./cart/cart-shell/cart-shell.component').then(
+        (c) => c.CartShellComponent
+      ),
+  },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 ];
