@@ -1,0 +1,15 @@
+.nav-link {
+  font-size: large;
+  cursor: pointer;
+}
+
+.navbar {
+  &-light,
+  &-nav,
+  &-link.active {
+    color: #007acc;
+  }
+  &-brand {
+    margin-left: 10px;
+  }
+}
