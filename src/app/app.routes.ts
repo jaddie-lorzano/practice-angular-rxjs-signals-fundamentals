@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './utilities/page-not-found.component';
 
 export const routes: Routes = [
   { path: 'welcome', component: HomeComponent },
@@ -18,4 +19,5 @@ export const routes: Routes = [
       ),
   },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
 ];
