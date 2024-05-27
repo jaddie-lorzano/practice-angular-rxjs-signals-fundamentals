@@ -1,1 +1,35 @@
-<p>cart-total works!</p>
+@if (cartItems.length) {
+<div class="card border-secondary">
+  <div class="card-header text-secondary fw-bold">Cart Total</div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-5">Subtotal:</div>
+      <div class="col-md-4 text-end">
+        {{ subTotal | currency }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">Delivery:</div>
+      @if (deliveryFee) {
+      <div class="col-md-4 text-end">
+        {{ deliveryFee | currency }}
+      </div>
+      } @else {
+      <div class="col-md-4" style="text-align: right; color: red"></div>
+      }
+    </div>
+    <div class="row">
+      <div class="col-md-5">Estimated Tax:</div>
+      <div class="col-md-4 text-end">
+        {{ tax | currency }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">Total:</div>
+      <div class="col-md-4 text-end">
+        {{ totalPrice | currency }}
+      </div>
+    </div>
+  </div>
+</div>
+}
