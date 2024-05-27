@@ -1,1 +1,19 @@
-<p>cart-list works!</p>
+<div class="card border-secondary">
+  <div class="card-header text-secondary fw-bold">
+    {{ pageTitle }}
+  </div>
+
+  <div class="card-body">
+    @if (cartItems.length) {
+    <div class="row">
+      <div class="col-md-4 fw-bold">Product</div>
+      <div class="col-md-2 fw-bold text-center">Price</div>
+      <div class="col-md-2 fw-bold text-center">Quantity</div>
+      <div class="col-md-2 fw-bold text-center">Extended Price</div>
+    </div>
+    <!-- Display the cart items -->
+    @for (item of cartItems; track item.product.id) {
+    <pm-cart-item [cartItem]="item" />
+    } } @else { No items in cart }
+  </div>
+</div>

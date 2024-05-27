@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CartItem } from '../cart';
 
 @Component({
   selector: 'pm-cart-item',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './cart-item.component.html',
 })
-export class CartItemComponent {}
+export class CartItemComponent {
+  @Input({ required: true }) cartItem!: CartItem;
+}
