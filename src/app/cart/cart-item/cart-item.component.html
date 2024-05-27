@@ -1,1 +1,31 @@
-<p>cart-item works!</p>
+@if (cartItem) {
+<div>
+  <div class="row mb-2">
+    <div class="col-md-4">
+      {{ cartItem.product.productName }}
+    </div>
+    <div class="col-md-2 text-center">
+      <select
+        class="form-select"
+        aria-label="Quantity list"
+        style="margin-bottom: 10px; width: 60px; margin: 0 auto"
+        [ngModel]="cartItem.quantity"
+        (ngModelChange)="onQuantitySelected($event)"
+      >
+        <option disabled value="">--Select a quantity</option>
+        @for (quantity of quantityArray; track $index) {
+        <option value="quantity">{{ quantity }}</option>
+        }
+      </select>
+    </div>
+    <div class="col-md-2 text-center">
+      {{ extendedPrice | currency }}
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-warning" (click)="removeFromCart()">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+}
