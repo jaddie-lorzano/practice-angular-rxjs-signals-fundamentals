@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Product } from '../product';
 import { CommonModule } from '@angular/common';
+import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
   selector: 'pm-product-list',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './product-list.component.html',
+  imports: [CommonModule, ProductDetailComponent],
 })
 export class ProductListComponent {
   // Just enough here for the template to compile

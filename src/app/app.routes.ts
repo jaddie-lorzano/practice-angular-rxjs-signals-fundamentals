@@ -10,4 +10,5 @@ export const routes: Routes = [
         (c) => c.ProductListComponent
       ),
   },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
 ];

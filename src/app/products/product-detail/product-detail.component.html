@@ -1,0 +1,71 @@
+@if (product) {
+<div class="card">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Name:</div>
+      <div class="col-md-6">{{ product.productName }}</div>
+      <div class="col-md-3">
+        <button class="btn btn-primary" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-6"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-6"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-6"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-6"></div>
+    </div>
+    <div class="table-responsive">
+      @if(product.reviews) {
+      <table class="table mb-0">
+        <thead>
+          <tr>
+            <th>Review</th>
+            <th>Username</th>
+            <th>Text</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (review of product.reviews; track review.id) {
+          <tr>
+            <td>
+              {{ review.title }}
+            </td>
+            <td>
+              {{ review.userName }}
+            </td>
+            <td>
+              {{ review.text }}
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+      } @else { No reviews for this product }
+    </div>
+  </div>
+</div>
+} @else if(errorMessage) {
+<div class="card">
+  <div class="card-header">Product Detail</div>
+</div>
+<div class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+}
