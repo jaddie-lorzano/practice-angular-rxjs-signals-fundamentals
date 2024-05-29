@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ProductService {
-  // Just enough here for the code to compile
   private productUrl = 'api/products';
 
   private http = inject(HttpClient);
@@ -17,5 +16,12 @@ export class ProductService {
     return this.http
       .get<Product[]>(this.productUrl)
       .pipe(tap((data) => console.table(data)));
+  }
+
+  getProduct(id: string): Observable<Product> {
+    const productUrl = `${this.productUrl}/${id}`;
+    return this.http
+      .get<Product>(productUrl)
+      .pipe(tap((data) => console.log(data)));
   }
 }
