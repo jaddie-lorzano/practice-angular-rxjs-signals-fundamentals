@@ -13,7 +13,9 @@
             class="list-group-item"
             [ngClass]="{ active: product.id === selectedProductId }"
             (click)="onSelected(product.id)"
-          ></button>
+          >
+            {{ product.productName }}
+          </button>
           }
         </div>
         }
